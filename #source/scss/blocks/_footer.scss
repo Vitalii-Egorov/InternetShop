@@ -1,0 +1,219 @@
+.footer {
+
+    &__content {
+    }
+
+    &__body {
+        border-top: 1px solid #D8D8D8;
+        display: grid;
+        grid-template-columns: 250px 1fr 290px;
+        @include adaptiv-value('padding-top', 80, 30, 1);
+        @include adaptiv-value('padding-bottom', 60, 30, 1);
+        @include adaptiv-value('column-gap', 60, 0, 1);
+
+        @media (max-width: $md1+px){
+           grid-template-rows: auto auto;
+           grid-template-columns: 1fr 290px;
+        }
+
+        @media (max-width: $md2+px){
+           display: block;
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        @media (max-width: $md1+px){
+           grid-column: span 2;
+           @include adaptiv-value('margin-bottom', 40, 30, 1);
+        }
+    }
+
+    &__logo {
+        margin: 0px 0px 16px/24px * 1em 0px;
+    }
+
+    &__text {
+        color: $gray;
+        line-height: 1.5;
+        &:not(:last-child){
+          margin: 0px 0px 1em 0px;
+        }
+    }
+
+    &__contacts {
+    }
+
+    &__menu {
+        @media (max-width: $md2+px){
+            @include adaptiv-value('margin-bottom', 40, 30, 1);
+         }
+    }
+
+    &__subscribe {
+    }
+}
+
+.contacts-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__item {
+        display: inline-flex;
+        align-items: center;
+        color: $gray;
+        line-height: 1.5;
+        transition: all .3s ease-in-out;
+         &:before{
+            margin: 0px 8px 0px 0px;
+        }
+
+        &:not(:last-child){
+          @include adaptiv-value('margin-bottom', 16, 10, 1);
+        }
+        @media (min-width: $md2+px){
+          &:hover{
+           color: $orange;
+         }
+        }
+    }
+}
+
+.menu-footer {
+    @media (min-width: $md3+px){
+       display: flex;
+    }
+
+    &__column {
+        @media (min-width: $md3+px){
+            flex: 0 0 33.333%;
+        }
+        @media (max-width: $md3+px){
+            @include adaptiv-value('margin-bottom', 30, 15, 1);
+        }
+    }
+
+    &__title {
+        cursor: text;
+        @media (min-width: $md3+px){
+            margin: 0px 0px 16px/24px * 1em 0px;
+        }
+
+        &._init{
+             display: flex;
+             width: 100%;
+             flex-direction: row-reverse;
+             justify-content: space-between;
+             align-items: center;
+             @extend ._icon-arrow-down;
+              &:before{
+                @extend %ic;
+                font-size: 12px;
+                transition: all .3s ease-in-out;
+             }
+        }
+
+        &._active{
+             &:before{
+                transform: rotate(180deg);
+            }
+        }
+    }
+
+    &__list {
+
+        li{
+            &:not(:last-child){
+              margin: 0px 0px 15px 0px;
+            }
+        }
+
+        @media (max-width: $md3+px){
+           display: none;
+           padding: 15px 0px 0px 0px;
+        }
+    }
+
+    &__link {
+        color: $dark-gray;
+        line-height: 1.2;
+        font-weight: 500;
+        transition: all .3s ease-in-out;
+        position: relative;
+
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: $orange;
+            pointer-events: none;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+        }
+
+        @media (min-width: $md2+px){
+            &:hover{
+                color: $orange;
+
+                &:before{
+                    width: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.subscribe {
+
+    &__title {
+        display: inline-block;
+        margin: 0px 0px 16px/24px * 1em 0px;
+    }
+
+    &__form {
+        display: flex;
+        position: relative;
+
+        .form__error{
+            position: absolute;
+            top: 100%;
+            margin: 3px 0px 0px 0px;
+            left: 12px;
+            color: red;
+            font-size: 12px;
+        }
+    }
+
+    &__button {
+        flex: 0 0 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        background: $orange;
+        color: $white;
+        margin: 0px 0px 0px 4px;
+        transition: all .3s ease-in-out;
+        @media (min-width: $md2+px){
+          &:hover{
+            background: darken($orange, 10%);
+         }
+        }
+    }
+
+    &__input{
+        width: 100%;
+        padding: 0 12px;
+        background: #F4F5F7;
+        color: #828282;
+    }
+}

@@ -1,0 +1,231 @@
+
+.main-slider {
+    background: #FCF8F3;
+    &__container {
+        position: relative;
+
+        @media (min-width: $md2+px){
+            &:before{
+               content: '';
+               background: #F9F1E7;
+               position: absolute;
+               top: 0;
+               width: 100vw;
+               right: 376px;
+               height: 100%;
+           }
+        }
+    }
+
+    &__body {
+        padding: 140px 0px 0px 0px;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: $md2+px){
+            padding: 80px 0px 0px 0px;
+        }
+
+        @media (max-width: $md3+px){
+            padding: 50px 0px 0px 0px;
+        }
+
+        @media (min-width: $md2+px){
+           display: flex;
+        }
+    }
+
+    &__content {
+        align-self: flex-start;
+        flex: 0 0 494/1240 * 100%;
+        @include adaptiv-value('margin-bottom', 80, 15, 1);
+
+        @media (max-width: $md2+px){
+           margin: 0 -15px;
+        }
+    }
+
+    &__slider {
+        flex: 1 1 auto;
+        min-width: 0;
+        align-self: flex-end;
+
+        @media (min-width: $md2+px){
+           padding: 0px 0px 0px 32px;
+        }
+    }
+}
+
+.content-main {
+    position: relative;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.72);
+    padding-left: 15px;
+    padding-right: 15px;
+    @include adaptiv-value('padding-top', 60, 15, 1);
+    @include adaptiv-value('padding-bottom', 60, 15, 1);
+    @media (min-width: $md2+px){
+       @include adaptiv-value('padding', 60, 1, 1);
+       background: rgba(255, 255, 255, 0.9);
+       @supports((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+        background: rgba(255, 255, 255, 0.72);
+        backdrop-filter: blur(31px)
+       }
+    }
+
+    &__title {
+        font-weight: 700;
+        @include adaptiv-value('font-size', 56, 24, 1);
+        line-height: 1.2;
+        &:not(:last-child){
+          margin: 0px 0px 16px/56px * 1em 0px;
+        }
+    }
+
+    &__text {
+        @include adaptiv-value('font-size', 20, 16, 1);
+        color: $gray;
+        font-weight: 500;
+        line-height: 1.5;
+        &:not(:last-child){
+            margin: 0px 0px 48px/20px * 1em 0px;
+        }
+    }
+
+    &__button {
+        font-weight: 600;
+        @include adaptiv-value('min-height', 78, 45, 1);
+        @include adaptiv-value('font-size', 20, 16, 1);
+        background: $orange;
+        color: $white;
+        width: 100%;
+
+
+        @media (min-width: $md2+px){
+            &:hover{
+              background: darken($orange, 10%);
+           }
+          }
+    }
+}
+
+.slider-main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media (max-width: $md2+px){
+       align-items: stretch;
+       flex-direction: column-reverse;
+    }
+
+    &__controls {
+        align-self: stretch;
+        margin: 0px 0px 20px 0px;
+        @media (max-width: $md2+px){
+            margin: 10px 0px 20px 0px;
+        }
+    }
+
+    &__body {
+        overflow: visible;
+        @media (min-width: $md2+px){
+           @include adaptiv-value('width', 934, 290, 1);
+        }
+        @media (max-width: $md2+px){
+           margin: 0 -15px;
+        }
+    }
+
+    &__slide {
+        position: relative;
+    }
+
+    &__image {
+        padding: 0px 0px 59.1% 0px;
+    }
+
+    &__content {
+        min-width: 295px;
+        max-height: 300px;
+        overflow: auto;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        @include adaptiv-value('padding', 24, 15, 1);
+        background: rgba(255, 255, 255, 0.9);
+        @supports((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))) {
+         background: rgba(255, 255, 255, 0.72);
+         backdrop-filter: blur(31px)
+        }
+
+        @media (min-width: $md3+px){
+           position: absolute;
+           min-width: 350px;
+           @include adaptiv-value('right', 40, 0, 1);
+           @include adaptiv-value('bottom', 40, 0, 1);
+        }
+        
+        @media (min-width: $md2+px){
+            &:hover{
+                .slider-main__price{
+                     &:before{
+                        color: $orange;
+                    }
+                }
+            }
+        }
+    }
+
+    &__title {
+        @include adaptiv-value('font-size', 28, 22, 1);
+        font-weight: 600;
+        line-height: 1.2;
+        &:not(:last-child){
+            margin: 0px 0px 4px/28px * 1em 0px;
+        }
+    }
+
+    &__text {
+        line-height: 1.5;
+        color: $gray;
+        &:not(:last-child){
+            margin: 0px 0px 8px/16px * 1em 0px;
+        }
+    }
+
+    &__price {
+        display: flex;
+        flex-direction: row-reverse;
+        line-height: 1.5;
+        align-items: center;
+        font-weight: 600;
+        justify-content: space-between;
+        @include adaptiv-value('font-size', 20, 16, 1);
+         &:before{
+            transition: all .3s ease-in-out;
+            margin: 0px 0px 0px 10px;
+            font-size: 12px;
+        }
+    }
+}
+
+.controls-slider-main {
+    display: flex;
+    align-items: center;
+    &__dotts {
+        flex: 1 1 auto;
+        @media (min-width: $md2+px){
+           padding: 0px 20px 0px 0px;
+        }
+        @media (max-width: $md2+px){
+           justify-content: center;
+        }
+    }
+
+    &__arrows {
+        @media (max-width: $md2+px){
+           display: none;
+        }
+    }
+}

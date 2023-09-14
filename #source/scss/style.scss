@@ -1,0 +1,50 @@
+// base
+@import "./base/variables";
+@import "./base/mixins";
+@import "./base/fonts";
+@import "./base/icons"; 
+@import "./base/zeroing";
+@import "./base/ibg"; 
+@import "./base/burger";
+@import "./base/popup";
+// libs
+@import "./libs/swiper-bundle.min";
+@import "./libs/lightgallery";
+
+@import "./base/ui";
+// blocks
+@import "./blocks/header";
+@import "./blocks/footer";
+@import "./blocks/mainSlider";
+@import "./blocks/advantages";
+@import "./blocks/products";
+@import "./blocks/rooms";
+@import "./blocks/tips";
+@import "./blocks/furniture";
+
+
+// global styles
+._container {
+	max-width: $width + px;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.page {
+  flex: 1 1 auto;
+}
+
+body._lock{
+  overflow: hidden;
+}
+
+// media
+/* @import "./base/media"; */

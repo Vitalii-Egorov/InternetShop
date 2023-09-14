@@ -1,0 +1,92 @@
+.tips {
+    @include adaptiv-value('padding-top', 44, 30, 1);
+    @include adaptiv-value('padding-bottom', 44, 30, 1);
+    &__container {
+    }
+
+    &__title {
+    }
+
+    &__slider {
+    }
+}
+
+.slider-tips {
+    position: relative;
+
+    &__body {
+        @include adaptiv-value('margin-left', -32, -15, 1);
+        @include adaptiv-value('margin-right', -32, -15, 1);
+        @include adaptiv-value('padding', 32, 15, 1);
+    }
+
+    &__slide {
+        display: flex;
+        flex-direction: column;
+        transition: all .3s ease-in-out;
+        @media(any-hover: hover){
+          &:hover{
+           box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+         }
+        }
+    }
+
+    &__image {
+        padding: 0px 0px 251/391 * 100% 0px;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        flex: 1 1 auto;
+        align-items: flex-start;
+    }
+
+    &__title {
+        flex: 1 1 auto;
+        color: inherit;
+        font-weight: 600;
+        line-height: 1.2;
+        @include adaptiv-value('font-size', 24, 18, 1);
+        transition: all .3s ease-in-out;
+        &:not(:last-child){
+          margin: 0px 0px 8px/24px * 1em 0px;
+        }
+
+        @media(any-hover: hover){
+          &:hover{
+           color: $orange;
+         }
+        }
+    }
+
+    &__text {
+        color: $gray;
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    &__dotts {
+        @include adaptiv-value('padding-top', 8, 0, 1);
+        justify-content: center;
+    }
+
+    &__arrows {
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: calc(100% - 48px);
+        left: 24px;
+        z-index: 10;
+        justify-content: space-between;
+        @media (min-width: $md1+px){
+            width: calc(100% + 48px);
+            left: -24px;
+        }
+        @media (max-width: $md4+px){
+           display: none;
+        }
+    }
+}
